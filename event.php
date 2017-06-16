@@ -1,26 +1,30 @@
 <?php
 include('get-ticketmaster-event.php');
 
-if (!isset($_POST['eventId'])) die('missing id');
-$event_id = $_POST['eventId'];
+if (!isset($_GET['eventId'])) die('missing id');
+$eventId = $_GET['eventId'];
+$eventLat = $_GET['latitude'];
+$eventLon = $_GET['longitude'];
+$eventName = $_GET['eventName'];
 
-$event = getTicketmasterEvent($event_id);
 ?>
 <html>
 <head>
   <title>event</title>
   <script src="./main.js" /></script>
+  
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
  
   <!-- leaflet map includes -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
   
   <script language="javascript">
-    values from php -> javascript
-    var eventName = "<?php echo $event['name']; ?>";
-    var eventLat = "<?php echo $event['lat']; ?>";
-    var eventLon = "<?php echo $event['lon']; ?>";
-  
+    //values from php -> javascript
+    var eventName = "<?php echo $eventId; ?>";
+    var eventLat = "<?php echo $eventLat; ?>";
+    var eventLon = "<?php echo $eventLon; ?>";
   </script>
 
   <link rel="stylesheet" type=text/css href="./main.css">
@@ -30,8 +34,12 @@ $event = getTicketmasterEvent($event_id);
 </head>
 
 <body onload="init();">
-   <h1>Event</h1>
-  
+   <h1>Event: <?php echo $eventName; ?></h1>
+   <?php 
+      echo $eventId; 
+      echo $eventLat;
+      echo $eventLon;
+      ?> 
    <div id="map" style="height:400px; width:400px;">
    map
    </div>
