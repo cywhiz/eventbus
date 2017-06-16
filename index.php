@@ -25,7 +25,7 @@
 
         // foreach ()
         // echo '<select>';
-        echo '<form action="event2.php" method="post">';
+        echo '<form action="event.php" method="post">';
         echo '<table>';
 		foreach ($json['_embedded']['events'] as $k => $v ) {
             // echo ($v['location'].'<br>');
@@ -47,6 +47,8 @@
                 // echo 'Longtitude: ' . $longitude . '<br>';
                 // echo 'Latitude: ' . $latitude . '<br>';
                 echo '<input type="hidden" name="eventId" value="'. $eventId .'">';
+                echo '<input type="hidden" name="longtitude" value="'. $longtitude .'">';
+                echo '<input type="hidden" name="latitude" value="'. $latitude .'">';
 
                 echo '<td><button type="submit" class="btn btn-primary">Select</button></td>';
                 echo '</tr>';
