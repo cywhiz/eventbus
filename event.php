@@ -35,11 +35,7 @@ $eventName = $_GET['eventName'];
 
 <body onload="init();">
    <h1>Event: <?php echo $eventName; ?></h1>
-   <?php 
-      echo $eventId; 
-      echo $eventLat;
-      echo $eventLon;
-      ?> 
+
    <div id="map" style="height:400px; width:400px;">
    map
    </div>
