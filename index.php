@@ -17,51 +17,35 @@
     	$url = 'https://app.ticketmaster.com/discovery/v2/events?apikey=IWAc0GdQ57dn9WYdX9RFNAeopoUCWs75&city=London&countryCode=GB&size=10';
 		$json = json_decode(file_get_contents($url), true);
 
-        // var_dump($json);
 
-        // echo '<script>console.log(\'' . 'fdsfdsf' . '\');</script>';
-
-        // echo $json['_embedded']['events'][0];
-
-        // foreach ()
-        // echo '<select>';
-        echo '<form action="event.php" method="get">';
         echo '<table>';
 		foreach ($json['_embedded']['events'] as $k => $v ) {
-            // echo ($v['location'].'<br>');
-            //print_r($v['_embedded']['venues']['location']);
             
             foreach ($v['_embedded']['venues'] as $i => $j) {
                 $longitude = isset($j['location']['longitude']) ? $j['location']['longitude'] : -9999;
-                $latitude = isset($j['location']['latitude']) ? $j['location']['longitude'] : -9999;
-                $venue = $j['name'];
-                $eventId = $v['id'];
+                $latitude  = isset($j['location']['latitude'])  ? $j['location']['latitude'] : -9999;
+                $venue     = $j['name'];
+                $eventId   = $v['id'];
                 $eventName = $v['name'];
                 $img = $v['images'][0]['url'];
 
                 echo '<tr>';
+                echo '<form action="event.php" method="get">';
                 echo '<td><img src="'. $img . '" height=100 width=100></img></td>';
                 echo '<td>Venue: ' . $venue . '<br>';
                 echo 'Event ID: ' . $eventId . '<br>';
-                echo 'Event Name: ' . $eventName . '</td>';
-                // echo 'Longtitude: ' . $longitude . '<br>';
-                // echo 'Latitude: ' . $latitude . '<br>';
+                echo 'Event Name: <b>' . $eventName . '</b></td>';
                 echo '<input type="hidden" name="eventId" value="'. $eventId .'">';
-                echo '<input type="hidden" name="longtitude" value="'. $longtitude .'">';
+                echo '<input type="hidden" name="longitude" value="'. $longitude .'">';
                 echo '<input type="hidden" name="latitude" value="'. $latitude .'">';
                 echo '<input type="hidden" name="eventName" value="'. $eventName .'">';
-
                 echo '<td><button type="submit" class="btn btn-primary">Select</button></td>';
+                echo '</form>';
                 echo '</tr>';
-                // echo '<option value="'. $eventId . '">'. $eventName . '</option>';
             }
             
 		}
         echo '</table>';
 
-        echo '</form>';
-        // echo '</select>';
-
-        
     ?>
 </body>
