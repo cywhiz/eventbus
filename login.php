@@ -11,7 +11,10 @@
 </head>
 <body>
   <h1>Login</h1>
-  
-  TODO
+  <form action="./index.php">
+  Username: <input type="text" id="username"><br>
+  Password: <input type="password" id="pw"><br>
+  <input type="submit" value="login">
+  </form>
 </body>
 </html>
