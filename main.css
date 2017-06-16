@@ -1,8 +1,20 @@
-body {
-
+#map {
+  height: 400px;
+  width: 400px;
 }
 
-.map {
-  height:200px;
-  width:200px;
+tr {
+  border: 1px solid black;
+}
+
+td {
+  padding: 10 px;
+}
+
+#content {
+  margin:5px 20px;
+}
+
+input#buy, input#login {
+  margin:20px 0px;
 }
