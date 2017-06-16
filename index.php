@@ -49,6 +49,7 @@
                 echo '<input type="hidden" name="eventId" value="'. $eventId .'">';
                 echo '<input type="hidden" name="longtitude" value="'. $longtitude .'">';
                 echo '<input type="hidden" name="latitude" value="'. $latitude .'">';
+                echo '<input type="hidden" name="eventName" value="'. $eventName .'">';
 
                 echo '<td><button type="submit" class="btn btn-primary">Select</button></td>';
                 echo '</tr>';
