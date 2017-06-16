@@ -1,8 +1,8 @@
 <?php
 include('get-ticketmaster-event.php');
 
-if (!isset($_GET['id'])) die('missing id');
-$event_id = $_GET['id'];
+if (!isset($_POST['eventId'])) die('missing id');
+$event_id = $_POST['eventId'];
 
 $event = getTicketmasterEvent($event_id);
 ?>
