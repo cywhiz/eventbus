@@ -1,7 +1,10 @@
 <?php
+include('get-ticketmaster-event.php');
+
 if (!isset($_GET['id'])) die('missing id');
 $event_id = $_GET['id'];
-$event = { };
+
+$event = getTicketmasterEvent($event_id);
 ?>
 <html>
 <body>
