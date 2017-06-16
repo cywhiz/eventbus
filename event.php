@@ -7,12 +7,14 @@ $eventLat = $_GET['latitude'];
 $eventLon = $_GET['longitude'];
 $eventName = $_GET['eventName'];
 
-//getTicketmasterEvent($event_id);
 ?>
 <html>
 <head>
   <title>event</title>
   <script src="./main.js" /></script>
+  
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
  
   <!-- leaflet map includes -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
