@@ -25,7 +25,7 @@
 
         // foreach ()
         // echo '<select>';
-        echo '<form action="event.php" method="post">';
+        echo '<form action="event.php" method="get">';
         echo '<table>';
 		foreach ($json['_embedded']['events'] as $k => $v ) {
             // echo ($v['location'].'<br>');
