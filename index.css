@@ -1,0 +1,11 @@
+tr {
+    border: 1px solid black;
+}
+
+td {
+    padding: 10 px;
+}
+
+.eventName {
+	font-weight: bold;	
+}
