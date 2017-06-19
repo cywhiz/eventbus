@@ -26,9 +26,13 @@ function loadListData(data) {
   data._embedded.events.forEach(function(event) {
 
     event._embedded.venues.forEach(function(venue) {
-      var latitude = venue.location.latitude;
-      var longitude = venue.location.longitude;
-      var venue = venue.name;
+      var latitude;
+      var longitude;
+      if (venue.location) {
+        latitude = venue.location.latitude;
+        longitude = venue.location.longitude;
+      }
+      var venueName = venue.name;
       var eventId = event.id;
       var eventName = event.name;
       var img = event.images[0].url;
@@ -36,7 +40,7 @@ function loadListData(data) {
       html += '<tr>' +
               '<form action="event.html" method="get">' +
               '<td><img src="' + img + '" height=100 width=100></img></td>' +
-              '<td>Venue: ' + venue + '<br>' +
+              '<td>Venue: ' + venueName + '<br>' +
               'Event ID: ' + eventId + '<br>' +
               'Event Name: <b>' + eventName + '</b></td>' +
               '<input type="hidden" name="eventId" value="' + eventId + '">' +
